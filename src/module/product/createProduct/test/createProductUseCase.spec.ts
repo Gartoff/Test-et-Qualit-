@@ -1,7 +1,7 @@
 import {describe, expect, test} from "@jest/globals";
 import {CreateProductUseCase} from "../createProductUseCase";
 import {CreateProductRepository} from "../createProductRepository";
-import {Product} from "../../productEntity";
+import {Product} from "../../Product";
 
 
 class CreateProductDummyRepository implements CreateProductRepository {

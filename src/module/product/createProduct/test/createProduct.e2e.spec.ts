@@ -1,8 +1,8 @@
 import {describe, expect, test, beforeAll, afterAll} from "@jest/globals";
 import {PostgreSqlContainer, StartedPostgreSqlContainer} from "@testcontainers/postgresql";
 import {DataSource} from "typeorm";
-import {Product} from "../Product";
-import {buildApp} from "../../../config/app";
+import {Product} from "../../Product";
+import {buildApp} from "../../../../config/app";
 import request from "supertest";
 import {Express} from "express";
 
@@ -31,7 +31,7 @@ describe("US-1 : Créer un produit - E2E", () => {
 
         await dataSource.initialize();
 
-        const AppDataSource = require("../../../config/db.config").default;
+        const AppDataSource = require("../../../../config/db.config").default;
 
 
         app = buildApp();
