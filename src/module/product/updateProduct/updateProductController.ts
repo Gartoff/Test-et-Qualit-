@@ -14,7 +14,7 @@ router.post('/product/:id', async (request: Request, response: Response) => {
     const updateProductUseCase = new UpdateProductUsecase(updateProductTypeOrmRepository);
 
     try {
-        await updateProductUseCase.execute(id, {title, description, price});
+        await updateProductUseCase.execute({id, title, description, price});
     } catch (error) {
         if (error instanceof Error) {
             return response.status(400).json({message: error.message});
