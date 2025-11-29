@@ -2,7 +2,6 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  // Fichiers à ignorer
   {
     ignores: [
       "node_modules/",
@@ -13,7 +12,6 @@ export default tseslint.config(
       "babel.config.js"
     ]
   },
-  // Configuration pour les fichiers TypeScript
   {
     files: ["**/*.ts"],
     extends: [tseslint.configs.recommended],
@@ -29,11 +27,15 @@ export default tseslint.config(
       }
     },
     rules: {
-      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-unused-vars": ["warn", {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_|error"
+      }],
       "@typescript-eslint/explicit-function-return-type": "off",
       "@typescript-eslint/no-explicit-any": "warn",
-      "@typescript-eslint/no-var-requires": "off", // Le projet utilise require() par endroits
-      "@typescript-eslint/no-require-imports": "off" // Mix ES6/CommonJS dans le projet
+      "@typescript-eslint/no-var-requires": "off",
+      "@typescript-eslint/no-require-imports": "off"
     }
   }
 );
