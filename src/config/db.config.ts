@@ -1,10 +1,10 @@
 import { config } from 'dotenv';
-import {DataSource} from "typeorm";
-import {Product} from "../module/product/Product";
+import { DataSource } from 'typeorm';
+import { Product } from '../module/product/Product';
 config({ path: '.env.local' });
 
-const AppDataSource =  new DataSource({
-    type: "postgres",
+const AppDataSource = new DataSource({
+    type: 'postgres',
     host: process.env.DB_HOST,
     port: parseInt(process.env.DB_PORT),
     username: process.env.DB_USER,
@@ -13,8 +13,7 @@ const AppDataSource =  new DataSource({
     logging: false,
     entities: [Product],
     synchronize: true,
-    entitySkipConstructor: true,
+    entitySkipConstructor: true
 });
-
 
 export default AppDataSource;
