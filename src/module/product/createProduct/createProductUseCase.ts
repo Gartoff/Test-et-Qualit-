@@ -17,6 +17,16 @@ export class CreateProductUseCase {
         description: string;
         price: number;
     }): Promise<void> {
+
+        if (price < 0) {
+            throw new Error('le prix doit être supérieur à 0');
+        }
+
+        if (price > 10000) {
+            throw new Error('le prix doit être inférieur à 10000');
+        }
+
+
         const product = new Product({ title, description, price });
 
         try {
@@ -24,5 +34,10 @@ export class CreateProductUseCase {
         } catch (error) {
             throw new Error('erreur lors de la création du produit');
         }
+    }
+
+
+
+
     }
 }

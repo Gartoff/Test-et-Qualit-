@@ -9,7 +9,8 @@
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
-    "format:check": "prettier --check \"src/**/*.ts\" \"tests/**/*.ts\""
+    "format:check": "prettier --check \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "sonar": "sonar-scanner"
   },
   "author": "",
   "license": "ISC",
@@ -47,6 +48,7 @@
     "jiti": "^2.6.1",
     "npm": "^11.4.2",
     "prettier": "^3.7.2",
+    "sonarqube-scanner": "^4.3.2",
     "supertest": "^7.1.1",
     "testcontainers": "^11.0.3",
     "ts-jest": "^29.4.0",
