@@ -49,12 +49,13 @@ describe('US - Creer une commande', () => {
         const repository = new CreateOrderDummyRepository();
         const useCase = new CreateOrderUseCase(repository);
 
-        await expect(
-            useCase.execute({
-                productIds: [1, 2, 3, 4, 5, 6],
-                totalPrice: 120
-            })
-        ).rejects.toThrow('la commande ne peut pas contenir plus de 5 produits');
+        const action = useCase.execute({
+            productIds: [1, 2, 3, 4, 5, 6],
+            totalPrice: 120
+        });
+
+        await expect(action).rejects.toThrow('la commande ne peut pas contenir plus de 5 produits');
+        expect(repository.savedOrder).toBeUndefined();
     });
 
     test('echec si un identifiant produit est invalide', async () => {
